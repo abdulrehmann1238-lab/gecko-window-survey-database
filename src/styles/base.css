@@ -1,0 +1,159 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base HTML & Reset */
+html, body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular figures for data and tables */
+table, .tabular-nums, [data-tabular="true"] {
+  font-feature-settings: "tnum" 1, "cv01" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Headings */
+h1, h2, .font-serif-display {
+  font-family: var(--font-display);
+}
+
+/* Monospace references and figures */
+.font-mono-data {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
+}
+
+/* Accessible focus ring: 2px --accent with 2px offset */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-tint);
+  color: var(--ink);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: var(--r1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
+
+/* The Signature Dimension Line Motif */
+.dimension-line-horiz {
+  position: relative;
+  height: 1px;
+  background-color: var(--ink-3);
+}
+.dimension-line-horiz::before,
+.dimension-line-horiz::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background-color: var(--ink-3);
+}
+.dimension-line-horiz::before {
+  left: 0;
+}
+.dimension-line-horiz::after {
+  right: 0;
+}
+
+.dimension-line-vert {
+  position: relative;
+  width: 1px;
+  background-color: var(--ink-3);
+}
+.dimension-line-vert::before,
+.dimension-line-vert::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  width: 9px;
+  height: 1px;
+  background-color: var(--ink-3);
+}
+.dimension-line-vert::before {
+  top: 0;
+}
+.dimension-line-vert::after {
+  bottom: 0;
+}
+
+/* Edit Mode Rail */
+.edit-mode-active {
+  box-shadow: inset 0 3px 0 var(--accent);
+}
+
+/* Paper grain overlay subtle pattern */
+.bg-paper-grain {
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(30, 40, 36, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Status Pill Styling */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--r1);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.status-ready-to-cut {
+  background-color: #E2E8F0;
+  color: #334155;
+}
+.status-awaiting-acrylic {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+.status-acrylic-received {
+  background-color: var(--accent-tint);
+  color: #78350F;
+}
+.status-in-production {
+  background-color: #E0F2FE;
+  color: #0369A1;
+}
+.status-complete {
+  background-color: #DCFCE7;
+  color: #166534;
+}
+
+/* Background pulse highlight when updated via OMS/background */
+@keyframes highlightFlash {
+  0% { background-color: var(--accent-tint); }
+  100% { background-color: transparent; }
+}
+
+.animate-highlight-update {
+  animation: highlightFlash 1.6s ease-out forwards;
+}

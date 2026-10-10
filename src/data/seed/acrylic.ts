@@ -1,0 +1,43 @@
+import { AcrylicBatch } from '../types';
+
+export const seededAcrylicBatches: AcrylicBatch[] = [
+  {
+    id: 'batch_ab_0031',
+    batchRef: 'AB-0031',
+    supplier: 'Spectrum Acrylics',
+    createdAt: '2026-10-10T11:30:00Z',
+    status: 'Draft',
+    colour: 'White (RAL 9016)',
+    thickness: '3mm',
+    paneIds: Array.from({ length: 16 }, (_, i) => `pane_wren_w1p${i + 1}`),
+    paneCount: 16,
+    sheetCount: 5,
+    totalAreaM2: 37.84,
+  },
+  {
+    id: 'batch_ab_0030',
+    batchRef: 'AB-0030',
+    supplier: 'Spectrum Acrylics',
+    createdAt: '2026-10-08T09:15:00Z',
+    status: 'Sent',
+    colour: 'Anthracite (RAL 7016)',
+    thickness: '3mm',
+    paneIds: Array.from({ length: 18 }, (_, i) => `pane_sent_ab30_${i + 1}`),
+    paneCount: 18,
+    sheetCount: 6,
+    totalAreaM2: 41.20,
+  },
+  {
+    id: 'batch_ab_0029',
+    batchRef: 'AB-0029',
+    supplier: 'Spectrum Acrylics',
+    createdAt: '2026-10-04T14:00:00Z',
+    status: 'Received',
+    colour: 'Heritage Cream (RAL 9001)',
+    thickness: '3mm',
+    paneIds: Array.from({ length: 24 }, (_, i) => `pane_rec_ab29_${i + 1}`),
+    paneCount: 24,
+    sheetCount: 7,
+    totalAreaM2: 52.60,
+  },
+];
